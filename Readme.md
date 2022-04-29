@@ -119,6 +119,13 @@ val z: Long = y  // Does not conform
 - [Implicit Conversion](./src/main/scala/com/tutorials/scala/lightspeed/ImplicitConversion.scala)
 - [Xml](./src/main/scala/com/tutorials/scala/lightspeed/XmlApp.scala)
 
+### Package and running a CLI
+```
+scalac com/tutorials/scala/lightspeed/Hello.scala -d main.jar -Xmain-class com.tutorials.scala.lightspeed.Hello
+
+scala -cp main.jar com.tutorials.scala.lightspeed.Hello 
+```
+
 ### Sources:
 - [Scala Language: The big Picture](https://app.pluralsight.com/course-player?clipId=418d779b-b660-43fa-bd37-c4db682c4ec4)
 - [Scala at LightSpeed](https://www.udemy.com/course/fast-scala/learn/lecture/27123394#overview)
