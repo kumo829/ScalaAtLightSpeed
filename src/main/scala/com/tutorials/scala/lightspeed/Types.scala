@@ -24,8 +24,13 @@ object Types extends App {
   val arr: Array[Int] = Array(1,2)
   println(arr(1))
 
+  var aTouple = ("CAD", 100)
+  println(aTouple._1)
+  println(aTouple._2)
+
   //Null
   val aNull: Null = null
   println(aNull)
+
 
 }

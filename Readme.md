@@ -109,6 +109,15 @@ val z: Long = y  // Does not conform
 
 `Null` is a subtype of all reference types (i.e. any subtype of `AnyRef`). It has a single value identified by the keyword literal `null`. `Null` is provided mostly for interoperability with other JVM languages and should almost never be used in Scala code.
 
+## Examples
+- [Types](./src/main/scala/com/tutorials/scala/lightspeed/Types.scala)
+- [Basics](./src/main/scala/com/tutorials/scala/lightspeed/Basics.scala)
+- [Loops](./src/main/scala/com/tutorials/scala/lightspeed/Loops.scala)
+- [Pattern Matching](./src/main/scala/com/tutorials/scala/lightspeed/PatternMatching.scala)
+- [Object Orientation](./src/main/scala/com/tutorials/scala/lightspeed/ObjectOrientation.scala)
+- [Functional Programming](./src/main/scala/com/tutorials/scala/lightspeed/FunctionalProgramming.scala)
+- [Xml](./src/main/scala/com/tutorials/scala/lightspeed/XmlApp.scala)
+
 ### Sources:
 - [Scala Language: The big Picture](https://app.pluralsight.com/course-player?clipId=418d779b-b660-43fa-bd37-c4db682c4ec4)
 - [Scala at LightSpeed](https://www.udemy.com/course/fast-scala/learn/lecture/27123394#overview)
