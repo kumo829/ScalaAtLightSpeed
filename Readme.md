@@ -116,6 +116,7 @@ val z: Long = y  // Does not conform
 - [Pattern Matching](./src/main/scala/com/tutorials/scala/lightspeed/PatternMatching.scala)
 - [Object Orientation](./src/main/scala/com/tutorials/scala/lightspeed/ObjectOrientation.scala)
 - [Functional Programming](./src/main/scala/com/tutorials/scala/lightspeed/FunctionalProgramming.scala)
+- [Implicit Conversion](./src/main/scala/com/tutorials/scala/lightspeed/ImplicitConversion.scala)
 - [Xml](./src/main/scala/com/tutorials/scala/lightspeed/XmlApp.scala)
 
 ### Sources:
