@@ -120,12 +120,175 @@ val z: Long = y  // Does not conform
 - [Xml](./src/main/scala/com/tutorials/scala/lightspeed/XmlApp.scala)
 
 ### Package and running a CLI
-```
+```shell script
 scalac com/tutorials/scala/lightspeed/Hello.scala -d main.jar -Xmain-class com.tutorials.scala.lightspeed.Hello
 
 scala -cp main.jar com.tutorials.scala.lightspeed.Hello 
 ```
 
-### Sources:
-- [Scala Language: The big Picture](https://app.pluralsight.com/course-player?clipId=418d779b-b660-43fa-bd37-c4db682c4ec4)
+## Scala Build Tool (sbt)
+A built tool provide us with a system were we can automate out process to compile the source files (standalone or from one or more sources); help us manage dependencies of our project; help us with automating the process of testing the project sources; and provided us a way to package and deploy our project.
+
+**sbt** is one of the popular chooses in the Scala ecosystem. It was launched is 2008 with the name of *Simple Build Tool*. It is used for scala and Java projects. It is used by popular frameworks like Akka, PlayFramework, Slick, and more.
+
+### Features
+- Zero or minimal configuration
+- Extensive support for testing with frameworks like *ScalaTest*, *ScalaCheck*, *Spec* and *JUnit*
+- Incremental compilation
+- Support for multi-projects
+- Parallel Task Execution
+- Library Management Support using inline declarations, IVY or Maven configurations
+
+### Useful Commands
+
+```shell script
+sbtVersion 
+```
+
+```shell script
+scalaVersion 
+```
+
+```shell script
+help 
+help <command name>
+```
+
+```shell script 
+run 
+```
+
+To run multiple commands add a semicolon before each command:
+```shell script
+;clean ;compile
+```
+
+Display the history commands:
+```shell script
+!
+```
+
+Enter into the scala console:
+```shell script
+console
+```
+
+Reloads the project in the current directory:
+```shell script
+reload
+```
+Shows how many projects are contained in the build definition file:
+```shell script
+projects
+```
+
+### Custom Settings
+To create a new setting key, in the `build.sbt` file:
+
+```
+lazy val background = settingKey[String]("My background as a programmer")
+background := "Java programmer"
+```
+To use the setting:
+```shell script
+help background
+background
+inspect background
+```
+
+A setting that depends on another setting:
+```shell script
+lazy val status = settingKey[String]("What was your previous job?")
+status := {
+  val e = background.value
+  s"I was a $e"
+}
+```
+### Custom Task
+
+To create a new task, in the `build.sbt` file
+
+```
+val randomInt = taskKey[Int]("Give me a random number")
+randomInt := scala.util.Random.nextInt
+```
+to execute the task:
+```shell script
+show randomInt
+```
+
+A task that uses a setting:
+```
+val randomInt = taskKey[Int]("Give me a random number")
+randomInt := {
+    println(background.value)
+    scala.util.Random.nextInt
+}
+```
+
+**A setting can not depend on a Task**.
+
+### Multi-project configuration
+In the `build.sbt` file:
+```
+lazy val subproject-1 = project
+    .dependsOn(subproject-2)
+    .settings(
+        libraryDependencies += ("org.scalatest" %% "scalatest" % "3.0.5" % Test)
+    )
+    
+lazy val subproject-2 = project
+    .settings(
+        libraryDependencies ++= Seq(
+            "org.scalatest" %% "scalatest" % "3.0.5" % Test,
+            "com.lihaoyi" %% "request" % "0..1.7"
+        )
+    )
+```
+
+or, using the `project` directory. In `Dependencies.scala`:
+```scala
+import sbt._
+
+object Dependencies {
+
+  val scalaRequests = "com.lihaoyi" %% "requests" % "0.1.7"
+  val scalaXml = "org.scala-lang.modules" %% "scala-xml" % "1.1.1"
+  val scalaTest = "org.scalatest" %% "scalatest" % "3.0.5"
+
+  val commonDependencies: Seq[ModuleID] = Seq(scalaTest % Test)
+
+  val apiDependencies: Seq[ModuleID] = Seq(scalaRequests,
+    scalaXml) ++ commonDependencies
+
+  val calculatorDependencies: Seq[ModuleID] = commonDependencies
+}
+```
+
+In `build.sbt`:
+```
+lazy val subproject-1 = project
+  .dependsOn(subproject-2)
+  .settings(
+    libraryDependencies ++= Dependencies.calculatorDependencies
+  )
+
+lazy val subproject-2 = project
+  .settings(
+    libraryDependencies ++= Dependencies.apiDependencies
+  )
+```
+
+## Useful design patterns
+- Typeclass pattern
+- Cake pattern for Dependency Injection
+- Scala Implicits for Dependency Injection
+- Optimizing Performance by Lazy Evaluation
+- Overcoming Inmutability Limitation by Lens Pattern
+- Memoization Pattern 
+
+## Sources:
+- [Scala Language: The big Picture](https://app.pluralsight.com/library/courses/scala-language-big-picture/table-of-contents)
+- [Scala Language: Getting Started](https://app.pluralsight.com/library/courses/scala-language-getting-started/table-of-contents)
+- [Scala Build Tool: Getting Started](https://app.pluralsight.com/library/courses/scala-build-tool-getting-started/table-of-contents)
 - [Scala at LightSpeed](https://www.udemy.com/course/fast-scala/learn/lecture/27123394#overview)

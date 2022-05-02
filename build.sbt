@@ -8,3 +8,18 @@ lazy val root = (project in file("."))
   .settings(
     name := "ScalaAtLightSpeed"
   )
+
+lazy val background = settingKey[String]("My background as a programmer")
+background := "Java programmer"
+
+lazy val status = settingKey[String]("What was your previous job?")
+status := {
+  val e = background.value
+  s"I was a $e"
+}
+
+val randomInt = taskKey[Int]("Give me a random number")
+randomInt := {
+  println(background.value)
+  scala.util.Random.nextInt
+}
