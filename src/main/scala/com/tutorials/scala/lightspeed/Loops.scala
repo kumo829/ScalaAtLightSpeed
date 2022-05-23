@@ -10,6 +10,23 @@ object Loops extends App{
     println(amount)
   }
 
+
+  //for loop with to
+  for(z <- 1 to 10) {
+    println(z) // prints numbers 1 to 10
+  }
+
+  //for loop with until
+  for(z <- 1 until  10) {
+    println(z) //prints numbers 1 to 9
+  }
+
+  //for loop with conditions
+  for(z <- 1 to 10 if z%2 == 0) {
+    println(z)
+  }
+
+
   // for as an expression
   val result: Array[Int] = for(amount <- amounts) yield {  //curly braces are optional
     amount + 1
