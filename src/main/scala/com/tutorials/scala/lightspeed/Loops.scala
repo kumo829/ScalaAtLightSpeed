@@ -7,23 +7,28 @@ object Loops extends App{
 
   //Simple for loop with one generator
   for(amount <- amounts) {
-    println(amount)
+    println(s"amount $amount")
   }
 
 
-  //for loop with to
+  //for loop with range inclusive (to)
   for(z <- 1 to 10) {
-    println(z) // prints numbers 1 to 10
+    println(s"inclusive ${z}") // prints numbers 1 to 10
   }
 
-  //for loop with until
+  //for loop with range exclusive (until)
   for(z <- 1 until  10) {
-    println(z) //prints numbers 1 to 9
+    println(s"until ${z}") //prints numbers 1 to 9
+  }
+
+  //for loop with range using steps
+  for(z <- 1 to 20 by 4) {
+    println(s"by ${z}")
   }
 
   //for loop with conditions
   for(z <- 1 to 10 if z%2 == 0) {
-    println(z)
+    println(s"if ${z}")
   }
 
 
@@ -32,7 +37,7 @@ object Loops extends App{
     amount + 1
   }
 
-  println(result)
+  println(result.mkString("Array(", ", ", ")"))
   result.foreach(value => println(value))
 
 
