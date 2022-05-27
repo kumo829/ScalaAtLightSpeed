@@ -99,4 +99,13 @@ object Basics extends App {
   logTransaction(82.67)
   logTransaction(1.84)
   logTransaction(1.84, currency = "JPY")
+
+
+  //initialize variable with default value
+
+  var aStringWithDefaultValue:String = _
+  var aIntWithDefaultValue:Int = _
+
+  println(aStringWithDefaultValue)
+  println(aIntWithDefaultValue)
 }
