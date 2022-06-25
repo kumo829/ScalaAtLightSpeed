@@ -65,10 +65,39 @@ object FunctionalProgramming extends App {
   val allPairs = List(1, 2, 3).flatMap(number => List('a', 'b', 'c').map(letter => s"$number-$letter"))
 
   var alternativePairs = for {
-    number <- List(1,2,3)
+    number <- List(1, 2, 3)
     letter <- List('a', 'b', 'c')
   } yield s"$number-$letter"
 
   println(allPairs)
   println(alternativePairs)
+
+
+  // function as argument
+  def ejemplo2(cifra1: Int, f: (Int) => Int): Int = {
+    f(cifra1)
+  }
+  // the second parameter is a function equivalent to  (x:Int) => x * 20
+  println(ejemplo2(10, _ * 20))
+
+  //  val funcion:Int => Int = (x:Int) => x * 20
+  val funcion = (x: Int) => x * 20
+
+  println(ejemplo2(10, funcion))
+
+
+
+  //Currying functions
+  def sum_normal(x:Int, y:Int): Int = x + y
+  def sum_currying(x:Int) = (y: Int) => x + y
+  def sum_currying_scala (x: Int)(y: Int) = x + y
+
+  println(sum_normal(10, 20))
+  println(sum_currying(10)(20))
+
+  var part = sum_currying(10)
+  println(part(20))
+
+  var part2 = sum_currying_scala(10)_ //the underscore is required in this case
+  println(part2(20))
 }
