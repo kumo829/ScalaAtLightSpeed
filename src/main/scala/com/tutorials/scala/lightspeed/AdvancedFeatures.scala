@@ -18,7 +18,7 @@ object AdvancedFeatures extends App {
   println(s"lazy value $lazyValueWithSideEffect")
 
 
-  //pseudo collections: Options, Try
+  //pseudo collections: Option, Try
 
   def methodWhichCanReturnNull(): String = "hello, Scala"
 
