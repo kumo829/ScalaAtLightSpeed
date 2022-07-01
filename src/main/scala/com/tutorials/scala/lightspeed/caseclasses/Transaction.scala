@@ -29,4 +29,20 @@ object TransactionRunner extends App{
   }
 
   println(amount)
+
+
+
+  sealed trait Shape
+
+  case class Rectangle(width: Int) extends Shape
+  case class Circle(radius: Int) extends Shape
+
+  val someShape: Shape = Rectangle(5)
+
+  val someShapeArea = someShape match {
+    case Rectangle(width) => width * width
+    case Circle(radius) => radius * radius * 3.14
+  }
+
+  println(someShapeArea)
 }
