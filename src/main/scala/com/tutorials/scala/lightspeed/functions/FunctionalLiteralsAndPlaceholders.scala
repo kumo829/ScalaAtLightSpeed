@@ -1,16 +1,29 @@
 package com.tutorials.scala.lightspeed.functions
 
-object FunctionalLiteralsAndPlaceholders extends App{
+object FunctionalLiteralsAndPlaceholders extends App {
   var multiplyBy = (x: Int) => x * 100 //function literal
 
   println(multiplyBy(5))
   println(multiplyBy(10))
 
-//  multiplyBy = (x: String) => x.toUpperCase //Illegal reasignment
-  multiplyBy = (x: Int) => x * 100 //Legal reasignment
+  //  multiplyBy = (x: String) => x.toUpperCase //Illegal reasignment
+  //  multiplyBy = (x: Int) => x * 100 //Legal reasignment
+  multiplyBy = (_: Int) * 100 //Placeholder syntax for one parameter
 
   println(multiplyBy(5))
   println(multiplyBy(10))
+
+  //  var add: (Int, Int) => Int = (x1, x2) => x1 + x2
+  val add: (Int, Int) => Int = _ + _ //Placeholder syntax with multiple arguments
+
+  println(add(2, 3))
+
+  /*
+  Wildcard arguments should not be confused with the placeholder syntax. The difference between wildcard arguments and
+  placeholders is that wildcard arguments are followed by an arrow =>.
+   */
+  val placeholder = (_: Int) + 1
+  val wildcard = (_: Int) => 42
 
   var calculateResult = (x: Int, y: Int) => { //function expression block
     val sum = x + y
@@ -29,12 +42,12 @@ object FunctionalLiteralsAndPlaceholders extends App{
 
   val googleStockPrices = List(126.48, 8468.48, 4468.4, 9647.5, 5684.5)
 
-//  googleStockPrices.foreach((price: Double) => println(price))
-//  googleStockPrices.foreach(price => println(price))
+  //  googleStockPrices.foreach((price: Double) => println(price))
+  //  googleStockPrices.foreach(price => println(price))
   googleStockPrices.foreach(println)
 
-//  println(googleStockPrices.filter( price => price > 5000))
-  println(googleStockPrices.filter( _ > 5000)) //placeholder
+  //  println(googleStockPrices.filter( price => price > 5000))
+  println(googleStockPrices.filter(_ > 5000)) //placeholder
 
   val stockTickersInLowerCase = List("googl", "ps", "tesla", "aapl", "msft")
 
@@ -47,8 +60,8 @@ object FunctionalLiteralsAndPlaceholders extends App{
   val addThreeNumbers = (x: Int, y: Int, z: Int) => x + y + z
 
   println("sayHello.isInstanceOf[Function0[_]]: " + sayHello.isInstanceOf[Function0[_]])
-  println("multiplyBy100.isInstanceOf[Function1[_,_]]: " + multiplyBy100.isInstanceOf[Function1[_,_]])
-  println("addTwoNumbers.isInstanceOf[Function2[_,_,_]]: " + addTwoNumbers.isInstanceOf[Function2[_,_,_]])
-  println("addThreeNumbers.isInstanceOf[Function3[_,_,_,_]]: " + addTwoNumbers.isInstanceOf[Function3[_,_,_,_]])
+  println("multiplyBy100.isInstanceOf[Function1[_,_]]: " + multiplyBy100.isInstanceOf[Function1[_, _]])
+  println("addTwoNumbers.isInstanceOf[Function2[_,_,_]]: " + addTwoNumbers.isInstanceOf[Function2[_, _, _]])
+  println("addThreeNumbers.isInstanceOf[Function3[_,_,_,_]]: " + addTwoNumbers.isInstanceOf[Function3[_, _, _, _]])
 
 }
