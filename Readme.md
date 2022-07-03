@@ -115,9 +115,13 @@ val z: Long = y  // Does not conform
 - [Loops](./src/main/scala/com/tutorials/scala/lightspeed/Loops.scala)
 - [Pattern Matching](./src/main/scala/com/tutorials/scala/lightspeed/PatternMatching.scala)
 - [Object Orientation](./src/main/scala/com/tutorials/scala/lightspeed/ObjectOrientation.scala)
+- [Collections](./src/main/scala/com/tutorials/scala/lightspeed/Collections.scala)
 - [Functional Programming](./src/main/scala/com/tutorials/scala/lightspeed/FunctionalProgramming.scala)
 - [Implicit Conversion](./src/main/scala/com/tutorials/scala/lightspeed/ImplicitConversion.scala)
 - [Xml](./src/main/scala/com/tutorials/scala/lightspeed/XmlApp.scala)
+- [Advanced Features](./src/main/scala/com/tutorials/scala/lightspeed/AdvancedFeatures.scala)
+
+**Note**: There are more examples on the internal packages. 
 
 ### Package and running a CLI
 ```shell script
