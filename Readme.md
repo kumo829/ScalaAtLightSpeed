@@ -103,6 +103,15 @@ val y: Float = x  // 9.8765434E8
 val z: Long = y  // Does not conform
 ```
 
+### Classes vs Case Classes
+Case classes helps to achieve aggregation, whereas simple classes achieve encapsulation.
+
+An important consequence is that constructor parameters of case classes are promoted to *public* members, whereas constructor parameters of simple classes are, by default, *private*.  
+
+When we define a case class, the compiler defines and customizes some parts of it.
+- Constructor parameters are promoted to *public*.
+- an **extractor** enables patter matching.
+- **equality** operator between instances compares the value of the case class field.
 ### Nothing and Null
 
 `Nothing` is a subtype of all types, also called the **bottom type**. There is no value that has type `Nothing`. A common use is to signal non-termination such as a thrown exception, program exit, or an infinite loop (i.e., it is the type of an expression which does not evaluate to a value, or a method that does not return normally).
@@ -116,6 +125,7 @@ val z: Long = y  // Does not conform
 - [Pattern Matching](./src/main/scala/com/tutorials/scala/lightspeed/PatternMatching.scala)
 - [Object Orientation](./src/main/scala/com/tutorials/scala/lightspeed/ObjectOrientation.scala)
 - [Collections](./src/main/scala/com/tutorials/scala/lightspeed/Collections.scala)
+- [Case classes](./src/main/scala/com/tutorials/scala/lightspeed/caseclasses/Transaction.scala)
 - [Functional Programming](./src/main/scala/com/tutorials/scala/lightspeed/FunctionalProgramming.scala)
 - [Implicit Conversion](./src/main/scala/com/tutorials/scala/lightspeed/ImplicitConversion.scala)
 - [Xml](./src/main/scala/com/tutorials/scala/lightspeed/XmlApp.scala)
