@@ -118,6 +118,14 @@ When we define a case class, the compiler defines and customizes some parts of i
 
 `Null` is a subtype of all reference types (i.e. any subtype of `AnyRef`). It has a single value identified by the keyword literal `null`. `Null` is provided mostly for interoperability with other JVM languages and should almost never be used in Scala code.
 
+### Functional Error Handling
+
+The regular try-catch-finally works in Scala, but it breaks functional purity as the regular case exceptions may not return the same type of value. 
+Because dof this, Scala provides the following functional error handling idioms:
+- **Try-Success-Failure**: The `Try` represents a computation that may succeed or fail. wraps successful computations in a `Success` type and failed computations in a `Failure` type.
+- **Option-Some-None**: Use the `Option` type to return a value from a function that can be `null` (this allows to handle `null` gracefully. Wrap valid result types in using the `Some` type and nulls using the `None` type. `Some` and `None` are both children of the `Option` type. 
+- **Either-Right-Left**: Exactly like *Option-Some-None* except that yuo can pass information about why a computation failed wrapped in the `Left` type.  
+
 ## Examples
 - [Types](./src/main/scala/com/tutorials/scala/lightspeed/Types.scala)
 - [Basics](./src/main/scala/com/tutorials/scala/lightspeed/Basics.scala)
