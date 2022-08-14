@@ -310,8 +310,9 @@ lazy val subproject-2 = project
 - Overcoming Inmutability Limitation by Lens Pattern
 - Memoization Pattern 
 
-## Sources:
+## References:
 - [Scala Language: The big Picture](https://app.pluralsight.com/library/courses/scala-language-big-picture/table-of-contents)
 - [Scala Language: Getting Started](https://app.pluralsight.com/library/courses/scala-language-getting-started/table-of-contents)
 - [Scala Build Tool: Getting Started](https://app.pluralsight.com/library/courses/scala-build-tool-getting-started/table-of-contents)
+- [Scala Type Classes and Parameterization](https://app.pluralsight.com/library/courses/scala-type-classes-parameterization/table-of-contents)
 - [Scala at LightSpeed](https://www.udemy.com/course/fast-scala/learn/lecture/27123394#overview)
