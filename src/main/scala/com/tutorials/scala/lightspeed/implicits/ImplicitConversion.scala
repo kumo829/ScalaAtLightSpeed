@@ -1,4 +1,4 @@
-package com.tutorials.scala.lightspeed
+package com.tutorials.scala.lightspeed.implicits
 
 case class Currency(code: String, amount: Double, toCad: Double)
 
