@@ -139,6 +139,7 @@ Because dof this, Scala provides the following functional error handling idioms:
 - [Xml](./src/main/scala/com/tutorials/scala/lightspeed/XmlApp.scala)
 - [Advanced Features](./src/main/scala/com/tutorials/scala/lightspeed/AdvancedFeatures.scala)
 - [Implicit conversion](./src/main/scala/com/tutorials/scala/lightspeed/implicits/ImplicitConversion.scala) and [Implicit classes](./src/main/scala/com/tutorials/scala/lightspeed/implicits/ImplicitClass.scala)
+- [Type Bounds and Variance](./src/main/scala/com/tutorials/scala/lightspeed/bounds/TypeBounds.scala)
 
 **Note**: There are more examples on the internal packages. 
 
